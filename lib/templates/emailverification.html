@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>{{options.subject}}</title>
+    <link
+      href="https://fonts.googleapis.com/css?family=Junge:400,400i,700,700i"
+      rel="stylesheet"
+    />
+    <link
+      href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
+      rel="stylesheet"
+    />
+    <style>
+      * {
+        box-sizing: border-box;
+      }
+      body {
+        margin: 0;
+        padding: 0;
+        font-family: 'Junge', serif;
+        font-size: 16px;
+      }
+      table {
+        width: 100%;
+      }
+      .hourtd {
+        padding: 5px 10px;
+        border: 1px solid #777676;
+      }
+      img {
+        width: 50px;
+      }
+    </style>
+  </head>
+  <body>
+    <table style="padding: 20px; border: 1px solid #eee">
+      <thead>
+        <tr>
+          <td
+            colspan="4"
+            class="logo"
+            style="
+              font-weight: 300;
+              text-align: center;
+              font-family: 'Junge', serif !important;
+              background-color: #ed796e;
+              color: #fff;
+              padding: 15px 0;
+              margin: 0;
+            "
+          >
+            <img src="{{mailSettings.logoUrl}}" alt="" />
+          </td>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td
+            colspan="4"
+            class="lead-text"
+            style="
+              padding: 15px 0;
+              font-weight: 600;
+              font-size: 18px;
+              text-align: left;
+              font-family: 'Junge', serif !important;
+            "
+          >
+            {{options.salutation}} {{name}},
+          </td>
+        </tr>
+        <tr>
+          <td
+            colspan="4"
+            style="
+              padding: 10px 0;
+              font-size: 18px;
+              font-family: 'Junge', serif !important;
+            "
+          >
+            {{options.body}}
+          </td>
+        </tr>
+        <tr>
+          <td
+            colspan="4"
+            style="
+              text-align: center;
+              padding: 10px 0;
+              font-size: 18px;
+              font-family: 'Junge', serif !important;
+            "
+          >
+            <a
+              href="{{optionalData.verifyUrl}}"
+              clicktracking="off"
+              target="_blank"
+              title="{{options.button}}"
+              style="
+                padding: 5px 10px;
+                background-color: #ed796e;
+                color: #fff;
+                border-radius: 2px;
+                text-decoration: none;
+              "
+              >{{options.button}}</a
+            >
+          </td>
+        </tr>
+      </tbody>
+      <tfoot
+        style="font-size: 14px; font-family: 'Junge', serif; padding-top: 40px"
+      >
+        <tr>
+          <td
+            colspan="4"
+            style="padding-top: 40px; font-family: 'Junge', serif"
+          >
+            <span style="color: #777676">{{options.signature}}</span><br />
+            {{mailSettings.signatureDetails}}
+            <br />
+            <p
+              class="copyright"
+              style="
+                text-align: center;
+                background-color: #f1f1f1;
+                padding: 20px;
+                font-family: 'Junge', serif;
+              "
+            >
+              {{mailSettings.footer}}
+            </p>
+          </td>
+        </tr>
+      </tfoot>
+    </table>
+  </body>
+</html>

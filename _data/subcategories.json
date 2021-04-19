@@ -1,0 +1,24 @@
+[
+  {
+    "_id": "607c096f3468a95b1f44e6d9",
+    "name": "Javascript",
+    "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque porttitor fermentum placerat. Ut dapibus eros id leo condimentum, aliquam accumsan massa porttitor.",
+    "image": "https://images.unsplash.com/photo-1593720219276-0b1eacd0aef4?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=743&q=80",
+    "category": "607bfad703e7fc462337f701"
+  },
+  {
+    "_id": "607c09763468a95b1f44e6da",
+    "name": "Dietetics",
+    "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque porttitor fermentum placerat. Ut dapibus eros id leo condimentum, aliquam accumsan massa porttitor.",
+    "image": "https://images.unsplash.com/photo-1490645935967-10de6ba17061?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=735&q=80",
+    "category": "607bfaee03e7fc462337f702"
+  },
+
+  {
+    "_id": "607c097b3468a95b1f44e6db",
+    "name": "Adventure",
+    "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque porttitor fermentum placerat. Ut dapibus eros id leo condimentum, aliquam accumsan massa porttitor.",
+    "image": "https://images.unsplash.com/photo-1542359649-31e03cd4d909?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=667&q=80",
+    "category": "607bfafb03e7fc462337f703"
+  }
+]

@@ -1,0 +1,38 @@
+{
+  "name": "journal-server",
+  "version": "1.0.0",
+  "description": "Journal backend API.",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server",
+    "dev": "nodemon server"
+  },
+  "author": "Utkarsh Tiwari",
+  "license": "MIT",
+  "devDependencies": {
+    "nodemon": "^2.0.7"
+  },
+  "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "colors": "^1.4.0",
+    "cookie-parser": "^1.4.5",
+    "cors": "^2.8.5",
+    "dotenv": "^8.2.0",
+    "express": "^4.17.1",
+    "express-joi-validator": "^2.0.1",
+    "express-mongo-sanitize": "^2.0.2",
+    "express-rate-limit": "^5.2.6",
+    "helmet": "^4.4.1",
+    "hpp": "^0.2.3",
+    "i18n": "^0.13.2",
+    "joi-objectid": "^3.0.1",
+    "jsonwebtoken": "^8.5.1",
+    "knox": "^0.9.2",
+    "mongoose": "^5.12.4",
+    "morgan": "^1.10.0",
+    "multer": "^1.4.2",
+    "q": "^1.5.1",
+    "sendgrid": "^5.2.3",
+    "xss-clean": "^0.1.1"
+  }
+}

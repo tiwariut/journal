@@ -1,0 +1,93 @@
+{
+  "auth": {
+    "invalidCredentials": "Invalid credentials.",
+    "login": "Logged in.",
+    "logout": "Logged out.",
+    "found": "Found my details.",
+    "updated": "My details updated.",
+    "incorrectPassword": "The current password is incorrect.",
+    "passwordUpdated": "Password updated.",
+    "invalidLink": "Sorry, the link is invalid or has expired.",
+    "passwordReset": "Your password has been updated. You can log in now with your new password.",
+    "invalidUserId": "Invalid user ID.",
+    "emailResend": "Verification email sent.",
+    "emailVerified": "Your email has been verified. Please log in to start using Journal.",
+    "alreadyRegistered": "This email is already registered with us.",
+    "passwordsDoNotMatch": "The passwords do not match.",
+    "emailVerification": {
+      "subject": "Welcome to Journal!",
+      "salutation": "Hello",
+      "body": "Thank you for registering. Please verify your email.",
+      "signature": "Thanks,",
+      "button": "Verify Email"
+    },
+    "registered": "Your registration has been done. Please verify your email address.",
+    "verifyEmail": "Your email is not verified. Please complete verification to log in.",
+    "connectedStripe": "Connected to Stripe.",
+    "somethingWentWrong": "Something went wrong. Please try again.",
+    "verifiedStripe": "Stripe account verified.",
+    "selectFile": "Please select a file to upload.",
+    "validType": "Please enter a valid type - 'photos' or 'profile'.",
+    "uploadServerError": "There was a server error in uploading the file.",
+    "imageUploaded": "Image uploaded.",
+    "notRegistered": "This email has not been registered with us.",
+    "forgotPassword": {
+      "subject": "Reset your password",
+      "salutation": "Hello",
+      "body": {
+        "line1": "Looks like you forgot your password. Please reset it.",
+        "line2": "The link will expire in 10 minutes."
+      },
+      "signature": "Thanks,",
+      "button": "Reset Password"
+    },
+    "resetEmailSent": "A link has been sent to you email. Please use it to reset your password."
+  },
+  "dashboard": {
+    "countsFound": "Resource counts found."
+  },
+  "users": {
+    "alreadyRegistered": "This email is already registered with us.",
+    "created": "User created.",
+    "notFound": "User not found with the id of",
+    "found": "User found.",
+    "updated": "User updated.",
+    "deleted": "User deleted.",
+    "invalidUserId": "Invalid user id.",
+    "usersFound": "Users found."
+  },
+  "categories": {
+    "notFound": "Category not found with the id of",
+    "found": "Category found.",
+    "alreadyExists": "A category with this name already exists.",
+    "created": "Category created.",
+    "updated": "Category updated.",
+    "deleted": "Category deleted.",
+    "selectFile": "Please select a file to upload.",
+    "uploadServerError": "There was a server error in uploading the file.",
+    "imageUploaded": "Image uploaded."
+  },
+  "subcategories": {
+    "notFound": "Subcategory not found with the id of",
+    "found": "Subcategory found.",
+    "alreadyExists": "A subcategory with this name already exists for this category.",
+    "created": "Subcategory created.",
+    "updated": "Subcategory updated.",
+    "deleted": "Subcategory deleted.",
+    "selectFile": "Please select a file to upload.",
+    "uploadServerError": "There was a server error in uploading the file.",
+    "imageUploaded": "Image uploaded."
+  },
+  "posts": {
+    "notFound": "Post not found with the id of",
+    "found": "Post found.",
+    "created": "Post created.",
+    "updateNotAllowed": "You are not authorized to update this post.",
+    "updated": "Post updated.",
+    "deleteNotAllowed": "You are not authorized to delete this post.",
+    "deleted": "Post deleted.",
+    "selectFile": "Please select a file to upload.",
+    "uploadServerError": "There was a server error in uploading the file.",
+    "imageUploaded": "Image uploaded."
+  }
+}

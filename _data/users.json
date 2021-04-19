@@ -1,0 +1,29 @@
+[
+  {
+    "_id": "5d7a514b5d2c12c7449be042",
+    "firstName": "Jack",
+    "lastName": "Sparrrow",
+    "fullName": "Jack Sparrow",
+    "email": "jack@yopmail.com",
+    "password": "123456",
+    "profilePicture": "https://images.unsplash.com/photo-1594189683218-b5a9a346a43f?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=750&q=80"
+  },
+  {
+    "_id": "607b21b00732661a8adc4803",
+    "firstName": "Peter",
+    "lastName": "Parker",
+    "fullName": "Peter Parker",
+    "email": "peter@yopmail.com",
+    "password": "123456",
+    "profilePicture": "https://images.unsplash.com/photo-1604200213928-ba3cf4fc8436?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=334&q=80"
+  },
+  {
+    "_id": "607b21b00732661a8adc4804",
+    "firstName": "Frank",
+    "lastName": "Castle",
+    "fullName": "Frank Castle",
+    "email": "frank@yopmail.com",
+    "password": "123456",
+    "profilePicture": "https://images.unsplash.com/photo-1542434684-41a0bf4e6cd3?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=750&q=80"
+  }
+]

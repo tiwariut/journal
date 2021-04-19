@@ -1,0 +1,21 @@
+[
+  {
+    "_id": "607bfad703e7fc462337f701",
+    "name": "Web Development",
+    "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque porttitor fermentum placerat. Ut dapibus eros id leo condimentum, aliquam accumsan massa porttitor.",
+    "image": "https://images.unsplash.com/photo-1505238680356-667803448bb6?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=750&q=80"
+  },
+  {
+    "_id": "607bfaee03e7fc462337f702",
+    "name": "Health and Fitness",
+    "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque porttitor fermentum placerat. Ut dapibus eros id leo condimentum, aliquam accumsan massa porttitor.",
+    "image": "https://images.unsplash.com/photo-1476480862126-209bfaa8edc8?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=750&q=80"
+  },
+
+  {
+    "_id": "607bfafb03e7fc462337f703",
+    "name": "Travel",
+    "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque porttitor fermentum placerat. Ut dapibus eros id leo condimentum, aliquam accumsan massa porttitor.",
+    "image": "https://images.unsplash.com/photo-1476514525535-07fb3b4ae5f1?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=750&q=80"
+  }
+]
