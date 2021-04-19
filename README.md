@@ -1,6 +1,6 @@
-# Journal API
+# Journal
 
-> Backend API for Journal application.
+> A blog application.
 
 ## Usage
 
