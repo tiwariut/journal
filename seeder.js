@@ -1,10 +1,7 @@
 const fs = require('fs');
 const mongoose = require('mongoose');
 const colors = require('colors');
-const dotenv = require('dotenv');
-
-// Load env vars
-dotenv.config({ path: './.env' });
+const config = require('config');
 
 // Load models
 const User = require('./models/User');
@@ -13,7 +10,7 @@ const Subcategory = require('./models/Subcategory');
 const Post = require('./models/Post');
 
 // Connect to DB
-mongoose.connect(process.env.MONGO_URI, {
+mongoose.connect(config.get('mongoURI'), {
   useNewUrlParser: true,
   useCreateIndex: true,
   useFindAndModify: false,

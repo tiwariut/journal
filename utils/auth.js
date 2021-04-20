@@ -1,12 +1,13 @@
+const config = require('config');
 const User = require('../models/User');
 
 module.exports = {
   createSuperAdmin: async () => {
     let superAdmin = {
-      firstName: process.env.SUPER_ADMIN_FIRST_NAME,
-      lastName: process.env.SUPER_ADMIN_LAST_NAME,
-      email: process.env.SUPER_ADMIN_EMAIL,
-      password: process.env.SUPER_ADMIN_PASSWORD,
+      firstName: config.get('superAdmin.firstName'),
+      lastName: config.get('superAdmin.lastName'),
+      email: config.get('superAdmin.email'),
+      password: config.get('superAdmin.password'),
       role: 'admin'
     };
     superAdmin.fullName = `${superAdmin.firstName} ${superAdmin.lastName}`;
@@ -34,7 +35,7 @@ module.exports = {
 
     const options = {
       expires: new Date(
-        Date.now() + process.env.JWT_COOKIE_EXPIRE * 24 * 60 * 60 * 1000
+        Date.now() + config.get('jwt.cookieExpire') * 24 * 60 * 60 * 1000
       ),
       httpOnly: true
     };

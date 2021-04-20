@@ -1,0 +1,18 @@
+{
+  "mongoURI": "mongodb://127.0.0.1:27017/journal",
+  "fileUpload": {
+    "path": "/public/uploads/",
+    "maxLimit": "2000000"
+  },
+  "jwt": {
+    "secret": "1t1h!wqhghkjsSAAAscxzGGAAsaczzxv",
+    "expire": "30d",
+    "cookieExpire": 30
+  },
+  "superAdmin": {
+    "firstName": "Super",
+    "lastName": "Admin",
+    "email": "admin@journal.com",
+    "password": "Password@2021"
+  }
+}

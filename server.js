@@ -1,7 +1,6 @@
 const path = require('path');
 const express = require('express');
 const bodyParser = require('body-parser');
-const dotenv = require('dotenv');
 const morgan = require('morgan');
 const colors = require('colors');
 const cookieParser = require('cookie-parser');
@@ -15,9 +14,6 @@ const i18n = require('i18n');
 const errorHandler = require('./middleware/error');
 const connectDB = require('./config/db');
 const { createSuperAdmin } = require('./utils/auth');
-
-// Load env vars
-dotenv.config({ path: './.env' });
 
 // Connect to database
 connectDB();
@@ -66,7 +62,7 @@ app.use(hpp());
 app.use(cors());
 
 // Set static folder
-// app.use(express.static(path.join(__dirname, 'public')));
+app.use(express.static(path.join(__dirname, 'public')));
 
 // Set localization
 i18n.configure({
