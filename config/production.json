@@ -1,5 +1,5 @@
 {
-  "mongoURI": "mongodb://127.0.0.1:27017/journal",
+  "mongoURI": "mongodb+srv://tiwar_ut:justdoit@contactkeeper.namat.mongodb.net/journal?retryWrites=true&w=majority",
   "jwt": {
     "secret": "1t1h!wqhghkjsSAAAscxzGGAAsaczzxv",
     "expire": "30d",
