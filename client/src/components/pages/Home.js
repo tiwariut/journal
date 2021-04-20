@@ -1,4 +1,5 @@
 import React, { useContext, useEffect } from 'react';
+import Posts from '../posts/Posts';
 import AuthContext from '../../context/auth/authContext';
 
 const Home = () => {
@@ -10,8 +11,10 @@ const Home = () => {
   }, []);
 
   return (
-    <div>
-      <h1>Welcome</h1>
+    <div className='grid-2'>
+      <div>
+        <Posts />
+      </div>
     </div>
   );
 };
