@@ -83,8 +83,6 @@ if (process.env.NODE_ENV === 'production') {
   );
 }
 
-require('child_process').fork('./seeder.js');
-
 const PORT = process.env.PORT || 5000;
 
 const server = app.listen(
