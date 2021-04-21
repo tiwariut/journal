@@ -4,11 +4,13 @@ const PostItem = ({ post }) => {
   const { _id, title, image, summary } = post;
 
   return (
-    <div className='card bg-light'>
+    <div>
       <h3 className='text-primary'>{title}</h3>
-      <img src={image} alt='' />
+      <img className='img' src={image} alt='' style={{ height: '50%' }} />
       <p>{summary}</p>
-      <button className='btn btn-primary btn-sm'>Read</button>
+      <div className='text-center my-1'>
+        <button className='btn btn-primary btn-sm'>Read</button>
+      </div>
     </div>
   );
 };

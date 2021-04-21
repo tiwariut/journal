@@ -1,17 +1,29 @@
-import React, { Fragment, useContext } from 'react';
+import React, { Fragment, useContext, useEffect } from 'react';
 import PostItem from './PostItem';
+import Spinner from '../layout/Spinner';
 import PostContext from '../../context/post/postContext';
 
 const Posts = () => {
   const postContext = useContext(PostContext);
 
-  const { posts } = postContext;
+  const { posts, getPosts, loading } = postContext;
+
+  useEffect(() => {
+    getPosts();
+    // eslint-disable-next-line
+  }, []);
 
   return (
     <Fragment>
-      {posts.map((post) => (
-        <PostItem key={post._id} post={post} />
-      ))}
+      {posts !== null && !loading ? (
+        <div className='grid-3'>
+          {posts.map((post) => (
+            <PostItem key={post._id} post={post} />
+          ))}
+        </div>
+      ) : (
+        <Spinner />
+      )}
     </Fragment>
   );
 };

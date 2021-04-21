@@ -11,7 +11,7 @@ const Home = () => {
   }, []);
 
   return (
-    <div className='grid-2'>
+    <div>
       <div>
         <Posts />
       </div>
