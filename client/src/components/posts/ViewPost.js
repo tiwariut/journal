@@ -18,22 +18,22 @@ const PostItem = ({ match }) => {
     <Fragment>
       {current !== null && !loading ? (
         <div>
-          <h1 class='text-center mt-4'>{current.title}</h1>
+          <h1 className='text-center mt-4'>{current.title}</h1>
           <hr />
-          <div className>
+          <div>
             <img src={current.user.profilePicture} style={roundImgStyle} />
             <span className='text-success'> {current.user.fullName} </span>
             <span className='text-secondary m-2'> 21st April, 2021</span>
-            <btn
+            <button
               className='btn btn-outline-secondary'
               style={{ float: 'right' }}
             >
               Edit
-            </btn>
+            </button>
           </div>
           <img src={current.image} alt='' style={{ width: '100%' }} />
           <hr />
-          <p class='lead p-4'>{current.content}</p>
+          <p className='lead p-4'>{current.content}</p>
         </div>
       ) : (
         <Spinner />

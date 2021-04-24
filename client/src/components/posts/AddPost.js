@@ -1,17 +1,194 @@
-import React from 'react';
+import React, { useEffect, useContext, useState } from 'react';
+import AlertContext from '../../context/alert/alertContext';
+import CategoryContext from '../../context/category/categoryContext';
+import SubcategoryContext from '../../context/subcategory/subcategoryContext';
+import PostContext from '../../context/post/postContext';
 
-const AddPost = () => {
+const AddPost = (props) => {
+  const alertContext = useContext(AlertContext);
+  const categoryContext = useContext(CategoryContext);
+  const subcategoryContext = useContext(SubcategoryContext);
+  const postContext = useContext(PostContext);
+
+  const { setAlert } = alertContext;
+  const {
+    categories,
+    getCategories,
+    loading: categoryLoading
+  } = categoryContext;
+  const {
+    subcategories,
+    getSubcategories,
+    loading: subcategoryLoading
+  } = subcategoryContext;
+  const { addPost, error } = postContext;
+
+  useEffect(() => {
+    getCategories();
+    // eslint-disable-next-line
+
+    if (error) {
+      setAlert(error, 'danger');
+    }
+  }, []);
+
+  const [post, setPost] = useState({
+    title: '',
+    image: '',
+    category: '',
+    subcategory: '',
+    summary: '',
+    content: ''
+  });
+
+  const { title, image, category, subcategory, summary, content } = post;
+
+  const onChange = (e) => setPost({ ...post, [e.target.name]: e.target.value });
+
+  const onCategoryChange = async (e) => {
+    getSubcategories(e.target.value);
+    return setPost({ ...post, [e.target.name]: e.target.value });
+  };
+
+  const onSubmit = async (e) => {
+    e.preventDefault();
+    if (
+      title === '' ||
+      image === '' ||
+      category === '' ||
+      subcategory === '' ||
+      summary === '' ||
+      content === ''
+    ) {
+      setAlert('Please enter all fields.', 'danger');
+    } else {
+      const newPost = await addPost(post);
+      props.history.push(`/post/view/${newPost._id}`);
+    }
+  };
+
   return (
-    <div>
-      <h1>Add Post</h1>
-      <form className='form-container'>
-        <form-group>
-          <label htmlFor='title'>Title</label>
-          <input type='text' name='title' id='title' />
-        </form-group>
+    <div className='form-container' style={formStyle}>
+      <h1 className='text-center' style={{ color: '#0d6efd' }}>
+        Add Post
+      </h1>
+
+      <form onSubmit={onSubmit}>
+        <div className='mb-3'>
+          <label htmlFor='title' className='form-label'>
+            Title
+          </label>
+          <input
+            type='text'
+            className='form-control'
+            id='title'
+            name='title'
+            value={title}
+            onChange={onChange}
+            required
+          />
+        </div>
+        <div className='mb-3'>
+          <label htmlFor='image' className='form-label'>
+            Image URL
+          </label>
+          <input
+            type='text'
+            className='form-control'
+            id='image'
+            name='image'
+            value={image}
+            onChange={onChange}
+            required
+          />
+        </div>
+        <div className='mb-3'>
+          <select
+            className='form-select'
+            name='category'
+            value={category}
+            onChange={onCategoryChange}
+            required
+          >
+            <option value=''>Category</option>
+            {categories !== null &&
+              !categoryLoading &&
+              categories.map((category) => (
+                <option key={category._id} value={category._id}>
+                  {category.name}
+                </option>
+              ))}
+          </select>
+        </div>
+        <div className='mb-3'>
+          <select
+            className='form-select'
+            name='subcategory'
+            value={subcategory}
+            onChange={onChange}
+            required
+          >
+            <option value=''>Subcategory</option>
+            {subcategories !== null &&
+              !subcategoryLoading &&
+              subcategories.map((subcategory) => (
+                <option key={subcategory._id} value={subcategory._id}>
+                  {subcategory.name}
+                </option>
+              ))}
+          </select>
+        </div>
+
+        <div className='mb-3'>
+          <label htmlFor='summary' className='form-label'>
+            Summary
+          </label>
+          <textarea
+            className='form-control'
+            id='summary'
+            name='summary'
+            value={summary}
+            onChange={onChange}
+            rows='3'
+            required
+          ></textarea>
+        </div>
+        <div className='mb-3'>
+          <label htmlFor='content' className='form-label'>
+            Content
+          </label>
+          <textarea
+            className='form-control'
+            id='content'
+            name='content'
+            value={content}
+            onChange={onChange}
+            rows='3'
+            required
+          ></textarea>
+        </div>
+
+        <button
+          type='submit'
+          className='btn btn-primary'
+          style={{
+            marginLeft: '38%',
+            marginTop: '20px',
+            background: '#0d6efd'
+          }}
+        >
+          Post
+        </button>
       </form>
     </div>
   );
+};
+
+const formStyle = {
+  maxWidth: '450px',
+  margin: 'auto',
+  marginTop: '20px',
+  padding: '30px'
 };
 
 export default AddPost;

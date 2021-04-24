@@ -43,10 +43,6 @@ const PostState = (props) => {
     }
   };
 
-  // Add Post
-
-  // Delete Post
-
   // Set Current Post
   const setCurrentPost = async (id) => {
     try {
@@ -64,6 +60,32 @@ const PostState = (props) => {
     }
   };
 
+  // Add Post
+  const addPost = async (formData) => {
+    const config = {
+      headers: {
+        'Content-Type': 'application/json'
+      }
+    };
+
+    try {
+      const res = await axios.post('/api/v1/posts', formData, config);
+
+      return res.data.data;
+
+      // return new Promise((resolve, reject) => {
+      //   resolve(res.data.data);
+      // });
+    } catch (err) {
+      dispatch({
+        type: POST_ERROR,
+        payload: err.response.data.error
+      });
+    }
+  };
+
+  // Delete Post
+
   // Clear Current Post
 
   // Update Post
@@ -77,8 +99,10 @@ const PostState = (props) => {
       value={{
         posts: state.posts,
         current: state.current,
+        error: state.error,
         getPosts,
-        setCurrentPost
+        setCurrentPost,
+        addPost
       }}
     >
       {props.children}
