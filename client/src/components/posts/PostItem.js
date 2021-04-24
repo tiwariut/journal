@@ -17,9 +17,7 @@ const PostItem = ({ post }) => {
           </div>
           <div className='col-md-8'>
             <div className='card-body'>
-              <h5 className='card-title' style={{ color: '#0d6efd' }}>
-                {title}
-              </h5>
+              <h5 className='card-title text-primary'>{title}</h5>
               <p className='card-text'>{summary}</p>
               <p className='card-text'>
                 <small className='text-muted'>{category.name}</small>
