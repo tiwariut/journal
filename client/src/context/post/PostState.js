@@ -8,8 +8,8 @@ import {
   GET_POSTS,
   ADD_POST,
   DELETE_POST,
-  SET_CURRENT,
-  CLEAR_CURRENT,
+  SET_CURRENT_POST,
+  CLEAR_CURRENT_POST,
   UPDATE_POST,
   FILTER_POSTS,
   CLEAR_FILTER
@@ -48,6 +48,21 @@ const PostState = (props) => {
   // Delete Post
 
   // Set Current Post
+  const setCurrentPost = async (id) => {
+    try {
+      const res = await axios.get(`/api/v1/posts/${id}`);
+
+      dispatch({
+        type: SET_CURRENT_POST,
+        payload: res.data.data
+      });
+    } catch (err) {
+      dispatch({
+        type: POST_ERROR,
+        payload: err.response
+      });
+    }
+  };
 
   // Clear Current Post
 
@@ -61,7 +76,9 @@ const PostState = (props) => {
     <PostContext.Provider
       value={{
         posts: state.posts,
-        getPosts
+        current: state.current,
+        getPosts,
+        setCurrentPost
       }}
     >
       {props.children}

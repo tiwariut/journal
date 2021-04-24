@@ -3,8 +3,8 @@ import {
   GET_POSTS,
   ADD_POST,
   DELETE_POST,
-  SET_CURRENT,
-  CLEAR_CURRENT,
+  SET_CURRENT_POST,
+  CLEAR_CURRENT_POST,
   UPDATE_POST,
   FILTER_POSTS,
   CLEAR_FILTER
@@ -16,6 +16,12 @@ const postReducer = (state, action) => {
       return {
         ...state,
         posts: action.payload,
+        loading: false
+      };
+    case SET_CURRENT_POST:
+      return {
+        ...state,
+        current: action.payload,
         loading: false
       };
     case POST_ERROR:
