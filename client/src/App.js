@@ -4,6 +4,7 @@ import Navbar from './components/layout/Navbar';
 import Home from './components/pages/Home';
 import About from './components/pages/About';
 import Login from './components/auth/Login';
+import AddPost from './components/posts/AddPost';
 import Alerts from './components/layout/Alerts';
 import PrivateRoute from './components/routing/PrivateRoute';
 
@@ -31,6 +32,7 @@ const App = () => {
                   <PrivateRoute exact path='/' component={Home} />
                   <Route exact path='/about' component={About} />
                   <Route exact path='/login' component={Login} />
+                  <PrivateRoute exact path='/post/add' component={AddPost} />
                 </Switch>
               </div>
             </Fragment>

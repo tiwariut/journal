@@ -40,14 +40,20 @@ const Login = (props) => {
   };
 
   return (
-    <div className='form-container'>
-      <h1>
-        Account <span className='text-primary'>Login</span>
+    <div className='form-container' style={formStyle}>
+      <h1 className='text-center' style={{ color: '#0d6efd' }}>
+        Login
       </h1>
+
       <form onSubmit={onSubmit}>
-        <div className='form-group'>
-          <label htmlFor='email'>Email Address</label>
+        <div className='mb-3'>
+          <label for='email' className='form-label'>
+            Email
+          </label>
           <input
+            type='email'
+            className='form-control'
+            id='email'
             type='email'
             name='email'
             value={email}
@@ -55,24 +61,41 @@ const Login = (props) => {
             required
           />
         </div>
-        <div className='form-group'>
-          <label htmlFor='password'>Password</label>
+        <div className='mb-3'>
+          <label for='password' className='form-label'>
+            Password
+          </label>
           <input
             type='password'
+            className='form-control'
+            id='password'
             name='password'
             value={password}
             onChange={onChange}
             required
           />
         </div>
-        <input
+        <button
           type='submit'
-          value='Login'
-          className='btn btn-primary btn-block'
-        />
+          className='btn btn-primary'
+          style={{
+            marginLeft: '38%',
+            marginTop: '20px',
+            background: '#0d6efd'
+          }}
+        >
+          Login
+        </button>
       </form>
     </div>
   );
+};
+
+const formStyle = {
+  maxWidth: '450px',
+  margin: 'auto',
+  marginTop: '20px',
+  padding: '30px'
 };
 
 export default Login;
