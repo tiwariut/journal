@@ -1,16 +1,22 @@
 import React, { Fragment, useEffect, useContext } from 'react';
+
 import Spinner from '../layout/Spinner';
+
+import AuthContext from '../../context/auth/authContext';
 import PostContext from '../../context/post/postContext';
 
 const PostItem = ({ match }) => {
+  const authContext = useContext(AuthContext);
   const postContext = useContext(PostContext);
 
-  const { setCurrentPost, current, loading } = postContext;
+  const { current, loading, getPost } = postContext;
 
   const { id } = match.params;
 
   useEffect(() => {
-    setCurrentPost(id);
+    authContext.loadUser();
+    getPost(id);
+
     // eslint-disable-next-line
   }, []);
 

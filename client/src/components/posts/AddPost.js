@@ -1,10 +1,13 @@
 import React, { useEffect, useContext, useState } from 'react';
+
+import AuthContext from '../../context/auth/authContext';
 import AlertContext from '../../context/alert/alertContext';
 import CategoryContext from '../../context/category/categoryContext';
 import SubcategoryContext from '../../context/subcategory/subcategoryContext';
 import PostContext from '../../context/post/postContext';
 
 const AddPost = (props) => {
+  const authContext = useContext(AuthContext);
   const alertContext = useContext(AlertContext);
   const categoryContext = useContext(CategoryContext);
   const subcategoryContext = useContext(SubcategoryContext);
@@ -24,12 +27,14 @@ const AddPost = (props) => {
   const { addPost, error } = postContext;
 
   useEffect(() => {
+    authContext.loadUser();
     getCategories();
-    // eslint-disable-next-line
 
     if (error) {
       setAlert(error, 'danger');
     }
+
+    // eslint-disable-next-line
   }, []);
 
   const [post, setPost] = useState({
@@ -50,8 +55,9 @@ const AddPost = (props) => {
     return setPost({ ...post, [e.target.name]: e.target.value });
   };
 
-  const onSubmit = async (e) => {
+  const onSubmit = (e) => {
     e.preventDefault();
+
     if (
       title === '' ||
       image === '' ||
@@ -62,8 +68,8 @@ const AddPost = (props) => {
     ) {
       setAlert('Please enter all fields.', 'danger');
     } else {
-      const newPost = await addPost(post);
-      props.history.push(`/post/view/${newPost._id}`);
+      addPost(post);
+      props.history.push(`/`);
     }
   };
 

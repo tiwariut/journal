@@ -1,5 +1,6 @@
 import React, { Fragment } from 'react';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+
 import Navbar from './components/layout/Navbar';
 import Home from './components/pages/Home';
 import About from './components/pages/About';
@@ -15,8 +16,8 @@ import PostState from './context/post/PostState';
 import CategoryState from './context/category/CategoryState';
 import SubcategoryState from './context/subcategory/SubcategoryState';
 import setAuthToken from './utils/setAuthToken';
+
 import './App.css';
-import { CLEAR_ERRORS } from './context/types';
 
 if (localStorage.token) {
   setAuthToken(localStorage.token);

@@ -1,6 +1,8 @@
 import React, { Fragment, useContext, useEffect } from 'react';
+
 import PostItem from './PostItem';
 import Spinner from '../layout/Spinner';
+
 import PostContext from '../../context/post/postContext';
 
 const Posts = () => {

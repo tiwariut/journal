@@ -1,5 +1,7 @@
 import React, { useContext, useEffect } from 'react';
+
 import Posts from '../posts/Posts';
+
 import AuthContext from '../../context/auth/authContext';
 
 const Home = () => {

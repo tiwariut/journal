@@ -1,25 +1,21 @@
 import React, { useReducer } from 'react';
-import { v4 as uuidv4 } from 'uuid';
 import axios from 'axios';
 import PostContext from './postContext';
 import postReducer from './postReducer';
 import {
   POST_ERROR,
   GET_POSTS,
-  ADD_POST,
-  DELETE_POST,
   SET_CURRENT_POST,
   CLEAR_CURRENT_POST,
+  ADD_POST,
   UPDATE_POST,
-  FILTER_POSTS,
-  CLEAR_FILTER
+  DELETE_POST
 } from '../types';
 
 const PostState = (props) => {
   const initialState = {
     posts: null,
     current: null,
-    filtered: null,
     error: null,
     loading: true
   };
@@ -38,26 +34,33 @@ const PostState = (props) => {
     } catch (err) {
       dispatch({
         type: POST_ERROR,
-        payload: err.response
+        payload: err.response.data.error
+      });
+    }
+  };
+
+  // Get Single Post
+  const getPost = async (id) => {
+    try {
+      const res = await axios.get(`/api/v1/posts/${id}`);
+
+      setCurrentPost(res.data.data);
+    } catch (err) {
+      dispatch({
+        type: POST_ERROR,
+        payload: err.response.data.error
       });
     }
   };
 
   // Set Current Post
-  const setCurrentPost = async (id) => {
-    try {
-      const res = await axios.get(`/api/v1/posts/${id}`);
+  const setCurrentPost = (post) => {
+    dispatch({ type: SET_CURRENT_POST, payload: post });
+  };
 
-      dispatch({
-        type: SET_CURRENT_POST,
-        payload: res.data.data
-      });
-    } catch (err) {
-      dispatch({
-        type: POST_ERROR,
-        payload: err.response
-      });
-    }
+  // Clear Current Post
+  const clearCurrentPost = () => {
+    dispatch({ type: CLEAR_CURRENT_POST });
   };
 
   // Add Post
@@ -71,11 +74,33 @@ const PostState = (props) => {
     try {
       const res = await axios.post('/api/v1/posts', formData, config);
 
-      return res.data.data;
+      dispatch({
+        type: ADD_POST,
+        payload: res.data.data
+      });
+    } catch (err) {
+      dispatch({
+        type: POST_ERROR,
+        payload: err.response.data.error
+      });
+    }
+  };
 
-      // return new Promise((resolve, reject) => {
-      //   resolve(res.data.data);
-      // });
+  // Update Post
+  const updatePost = async (post) => {
+    const config = {
+      headers: {
+        'Content-Type': 'application/json'
+      }
+    };
+
+    try {
+      const res = await axios.put(`/api/v1/posts/${post._id}`, post, config);
+
+      dispatch({
+        type: UPDATE_POST,
+        payload: res.data.data
+      });
     } catch (err) {
       dispatch({
         type: POST_ERROR,
@@ -85,14 +110,21 @@ const PostState = (props) => {
   };
 
   // Delete Post
+  const deletePost = async (id) => {
+    try {
+      await axios.delete(`/api/posts/${id}`);
 
-  // Clear Current Post
-
-  // Update Post
-
-  // Filter Post
-
-  // Clear Filter
+      dispatch({
+        type: DELETE_POST,
+        payload: id
+      });
+    } catch (err) {
+      dispatch({
+        type: POST_ERROR,
+        payload: err.response.data.error
+      });
+    }
+  };
 
   return (
     <PostContext.Provider
@@ -100,9 +132,14 @@ const PostState = (props) => {
         posts: state.posts,
         current: state.current,
         error: state.error,
+        loading: state.loading,
         getPosts,
+        getPost,
         setCurrentPost,
-        addPost
+        clearCurrentPost,
+        addPost,
+        updatePost,
+        deletePost
       }}
     >
       {props.children}

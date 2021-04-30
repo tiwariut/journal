@@ -1,6 +1,7 @@
 import React, { Fragment, useContext } from 'react';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
+
 import AuthContext from '../../context/auth/authContext';
 
 const Navbar = ({ title, icon }) => {
