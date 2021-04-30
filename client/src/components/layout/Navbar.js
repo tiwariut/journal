@@ -32,7 +32,7 @@ const Navbar = ({ title, icon }) => {
   const authRightLinks = (
     <Fragment>
       <li className='nav-item'>
-        <a className='nav-link active' aria-current='page' href='#'>
+        <a className='nav-link active' aria-current='page' href='!#'>
           Hello, {user && user.firstName}
         </a>
       </li>
@@ -64,7 +64,7 @@ const Navbar = ({ title, icon }) => {
   return (
     <nav className='navbar navbar-expand-lg navbar-dark bg-primary'>
       <div className='container-fluid'>
-        <a className='navbar-brand' href='#'>
+        <a className='navbar-brand' href='!#'>
           <i className={icon} /> {title}
         </a>
         <button

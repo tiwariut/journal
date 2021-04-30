@@ -27,7 +27,11 @@ const PostItem = ({ match }) => {
           <h1 className='text-center mt-4'>{current.title}</h1>
           <hr />
           <div>
-            <img src={current.user.profilePicture} style={roundImgStyle} />
+            <img
+              src={current.user.profilePicture}
+              style={roundImgStyle}
+              alt=''
+            />
             <span className='text-success'> {current.user.fullName} </span>
             <span className='text-secondary m-2'> 21st April, 2021</span>
             <button

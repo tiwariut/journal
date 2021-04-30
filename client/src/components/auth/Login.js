@@ -55,7 +55,6 @@ const Login = (props) => {
             type='email'
             className='form-control'
             id='email'
-            type='email'
             name='email'
             value={email}
             onChange={onChange}
