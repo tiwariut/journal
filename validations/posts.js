@@ -4,7 +4,7 @@ Joi.objectId = require('joi-objectid')(Joi);
 module.exports.createPostSchema = {
   body: {
     title: Joi.string().required(),
-    summary: Joi.string().optional(),
+    summary: Joi.string().max(150).optional(),
     content: Joi.string().required(),
     image: Joi.string().uri().optional(),
     type: Joi.string().valid('public', 'private').optional(),
@@ -16,7 +16,7 @@ module.exports.createPostSchema = {
 module.exports.updatePostSchema = {
   body: {
     title: Joi.string().optional(),
-    summary: Joi.string().allow('').optional(),
+    summary: Joi.string().max(150).allow('').optional(),
     content: Joi.string().optional(),
     image: Joi.string().uri().allow('').optional(),
     type: Joi.string().valid('public', 'private').optional(),

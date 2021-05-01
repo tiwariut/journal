@@ -35,9 +35,9 @@ const UpdatePost = ({ match, history }) => {
     getCategories();
     getSubcategories(current.category._id);
 
-    if (error) {
-      setAlert(error, 'danger');
-    }
+    // if (error) {
+    //   setAlert(error, 'danger');
+    // }
 
     // eslint-disable-next-line
   }, []);
@@ -83,7 +83,7 @@ const UpdatePost = ({ match, history }) => {
       {current !== null && !loading ? (
         <div className='form-container' style={formStyle}>
           <h1 className='text-center' style={{ color: '#0d6efd' }}>
-            Add Post
+            Update Post
           </h1>
 
           <form onSubmit={onSubmit}>
@@ -162,6 +162,7 @@ const UpdatePost = ({ match, history }) => {
                 name='summary'
                 value={summary}
                 onChange={onChange}
+                maxLength='150'
                 rows='3'
                 required
               ></textarea>
@@ -176,7 +177,7 @@ const UpdatePost = ({ match, history }) => {
                 name='content'
                 value={content}
                 onChange={onChange}
-                rows='3'
+                rows='5'
                 required
               ></textarea>
             </div>
@@ -190,7 +191,7 @@ const UpdatePost = ({ match, history }) => {
                 background: '#0d6efd'
               }}
             >
-              Post
+              Update
             </button>
           </form>
         </div>

@@ -10,6 +10,8 @@ const PostItem = ({ match, history }) => {
   const authContext = useContext(AuthContext);
   const postContext = useContext(PostContext);
 
+  const { user } = authContext;
+
   const {
     current,
     loading,
@@ -34,6 +36,20 @@ const PostItem = ({ match, history }) => {
     history.push('/');
   };
 
+  const authLinks = (
+    <span style={{ float: 'right' }}>
+      <Link
+        className='btn btn-outline-secondary me-2'
+        to={`/post/update/${id}`}
+      >
+        Update
+      </Link>
+      <button className='btn btn-outline-danger' onClick={onDelete}>
+        Delete
+      </button>
+    </span>
+  );
+
   return (
     <Fragment>
       {current !== null && !loading ? (
@@ -48,17 +64,8 @@ const PostItem = ({ match, history }) => {
             />
             <span className='text-success'> {current.user.fullName} </span>
             <span className='text-secondary m-2'> 21st April, 2021</span>
-            <span style={{ float: 'right' }}>
-              <Link
-                className='btn btn-outline-secondary me-2'
-                to={`/post/update/${id}`}
-              >
-                Update
-              </Link>
-              <button className='btn btn-outline-danger' onClick={onDelete}>
-                Delete
-              </button>
-            </span>
+            {(user.role === 'admin' || user._id === current.user._id) &&
+              authLinks}
           </div>
           <img src={current.image} alt='' style={{ width: '100%' }} />
           <hr />

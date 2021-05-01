@@ -30,9 +30,9 @@ const AddPost = (props) => {
     authContext.loadUser();
     getCategories();
 
-    if (error) {
-      setAlert(error, 'danger');
-    }
+    // if (error) {
+    //   setAlert(error, 'danger');
+    // }
 
     // eslint-disable-next-line
   }, []);
@@ -147,7 +147,7 @@ const AddPost = (props) => {
 
         <div className='mb-3'>
           <label htmlFor='summary' className='form-label'>
-            Summary
+            Summary <span className='text-secondary'>(max 150 characters)</span>
           </label>
           <textarea
             className='form-control'
@@ -155,6 +155,7 @@ const AddPost = (props) => {
             name='summary'
             value={summary}
             onChange={onChange}
+            maxLength='150'
             rows='3'
             required
           ></textarea>
@@ -169,7 +170,7 @@ const AddPost = (props) => {
             name='content'
             value={content}
             onChange={onChange}
-            rows='3'
+            rows='5'
             required
           ></textarea>
         </div>
