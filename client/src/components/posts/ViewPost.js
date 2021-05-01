@@ -48,20 +48,17 @@ const PostItem = ({ match, history }) => {
             />
             <span className='text-success'> {current.user.fullName} </span>
             <span className='text-secondary m-2'> 21st April, 2021</span>
-            <Link
-              className='btn btn-outline-secondary'
-              style={{ float: 'right' }}
-              to={`/post/update/${id}`}
-            >
-              Update
-            </Link>
-            <button
-              className='btn btn-outline-danger'
-              style={{ float: 'right', position: 'relative', right: '10px' }}
-              onClick={onDelete}
-            >
-              Delete
-            </button>
+            <span style={{ float: 'right' }}>
+              <Link
+                className='btn btn-outline-secondary me-2'
+                to={`/post/update/${id}`}
+              >
+                Update
+              </Link>
+              <button className='btn btn-outline-danger' onClick={onDelete}>
+                Delete
+              </button>
+            </span>
           </div>
           <img src={current.image} alt='' style={{ width: '100%' }} />
           <hr />
