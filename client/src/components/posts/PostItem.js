@@ -17,7 +17,12 @@ const PostItem = ({ post }) => {
           </div>
           <div className='col-md-8'>
             <div className='card-body'>
-              <h5 className='card-title text-primary'>{title}</h5>
+              <h5
+                className='card-title text-primary'
+                style={{ minHeight: '72px' }}
+              >
+                {title}
+              </h5>
               <p className='card-text' style={{ minHeight: '100px' }}>
                 {summary}
               </p>

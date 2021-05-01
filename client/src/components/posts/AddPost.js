@@ -82,7 +82,7 @@ const AddPost = (props) => {
       <form onSubmit={onSubmit}>
         <div className='mb-3'>
           <label htmlFor='title' className='form-label'>
-            Title
+            Title <span className='text-secondary'>(max 100 characters)</span>
           </label>
           <input
             type='text'
@@ -91,6 +91,7 @@ const AddPost = (props) => {
             name='title'
             value={title}
             onChange={onChange}
+            maxLength='100'
             required
           />
         </div>
