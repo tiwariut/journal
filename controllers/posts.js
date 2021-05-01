@@ -85,7 +85,7 @@ exports.updatePost = asyncHandler(async (req, res, next) => {
   post.title = title ? title : post.title;
   post.summary = summary || summary === '' ? summary : post.summary;
   post.content = content ? content : post.content;
-  user.image = image || image === '' ? image : user.image;
+  post.image = image || image === '' ? image : post.image;
   post.type = type ? type : post.type;
   post.category = category ? category : post.category;
   post.subcategory = subcategory ? subcategory : post.subcategory;

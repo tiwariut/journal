@@ -87,7 +87,7 @@ const PostState = (props) => {
   };
 
   // Update Post
-  const updatePost = async (post) => {
+  const updatePost = async (id, post) => {
     const config = {
       headers: {
         'Content-Type': 'application/json'
@@ -95,7 +95,7 @@ const PostState = (props) => {
     };
 
     try {
-      const res = await axios.put(`/api/v1/posts/${post._id}`, post, config);
+      const res = await axios.put(`/api/v1/posts/${id}`, post, config);
 
       dispatch({
         type: UPDATE_POST,

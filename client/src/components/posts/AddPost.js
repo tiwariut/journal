@@ -24,7 +24,7 @@ const AddPost = (props) => {
     getSubcategories,
     loading: subcategoryLoading
   } = subcategoryContext;
-  const { addPost, error } = postContext;
+  const { error, addPost } = postContext;
 
   useEffect(() => {
     authContext.loadUser();

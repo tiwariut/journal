@@ -7,6 +7,7 @@ import About from './components/pages/About';
 import Login from './components/auth/Login';
 import ViewPost from './components/posts/ViewPost';
 import AddPost from './components/posts/AddPost';
+import UpdatePost from './components/posts/UpdatePost';
 import Alerts from './components/layout/Alerts';
 import PrivateRoute from './components/routing/PrivateRoute';
 
@@ -49,6 +50,12 @@ const App = () => {
                         path='/post/add'
                         component={AddPost}
                       />
+                      <PrivateRoute
+                        exact
+                        path='/post/update/:id'
+                        component={UpdatePost}
+                      />
+                      AddPost
                     </Switch>
                   </div>
                 </Fragment>

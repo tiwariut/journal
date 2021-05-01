@@ -13,7 +13,7 @@ const SubcategoryState = (props) => {
 
   const [state, dispatch] = useReducer(subcategoryReducer, initialState);
 
-  // Get Categories
+  // Get Subcategories
   const getSubcategories = async (categoryId) => {
     try {
       const res = await axios.get(

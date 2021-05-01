@@ -1,4 +1,5 @@
 import React, { Fragment, useEffect, useContext } from 'react';
+import { Link } from 'react-router-dom';
 
 import Spinner from '../layout/Spinner';
 
@@ -34,12 +35,13 @@ const PostItem = ({ match }) => {
             />
             <span className='text-success'> {current.user.fullName} </span>
             <span className='text-secondary m-2'> 21st April, 2021</span>
-            <button
+            <Link
               className='btn btn-outline-secondary'
               style={{ float: 'right' }}
+              to={`/post/update/${id}`}
             >
-              Edit
-            </button>
+              Update
+            </Link>
           </div>
           <img src={current.image} alt='' style={{ width: '100%' }} />
           <hr />
