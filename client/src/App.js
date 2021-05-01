@@ -4,6 +4,7 @@ import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import Navbar from './components/layout/Navbar';
 import Home from './components/pages/Home';
 import About from './components/pages/About';
+import NotFound from './components/pages/NotFound';
 import Login from './components/auth/Login';
 import ViewPost from './components/posts/ViewPost';
 import AddPost from './components/posts/AddPost';
@@ -55,7 +56,7 @@ const App = () => {
                         path='/post/update/:id'
                         component={UpdatePost}
                       />
-                      AddPost
+                      <Route component={NotFound} />
                     </Switch>
                   </div>
                 </Fragment>
