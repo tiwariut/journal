@@ -112,7 +112,7 @@ const PostState = (props) => {
   // Delete Post
   const deletePost = async (id) => {
     try {
-      await axios.delete(`/api/posts/${id}`);
+      await axios.delete(`/api/v1/posts/${id}`);
 
       dispatch({
         type: DELETE_POST,

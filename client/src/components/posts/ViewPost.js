@@ -6,11 +6,17 @@ import Spinner from '../layout/Spinner';
 import AuthContext from '../../context/auth/authContext';
 import PostContext from '../../context/post/postContext';
 
-const PostItem = ({ match }) => {
+const PostItem = ({ match, history }) => {
   const authContext = useContext(AuthContext);
   const postContext = useContext(PostContext);
 
-  const { current, loading, getPost } = postContext;
+  const {
+    current,
+    loading,
+    getPost,
+    clearCurrentPost,
+    deletePost
+  } = postContext;
 
   const { id } = match.params;
 
@@ -20,6 +26,13 @@ const PostItem = ({ match }) => {
 
     // eslint-disable-next-line
   }, []);
+
+  const onDelete = () => {
+    deletePost(current._id);
+    clearCurrentPost();
+
+    history.push('/');
+  };
 
   return (
     <Fragment>
@@ -42,6 +55,13 @@ const PostItem = ({ match }) => {
             >
               Update
             </Link>
+            <button
+              className='btn btn-outline-danger'
+              style={{ float: 'right', position: 'relative', right: '10px' }}
+              onClick={onDelete}
+            >
+              Delete
+            </button>
           </div>
           <img src={current.image} alt='' style={{ width: '100%' }} />
           <hr />
