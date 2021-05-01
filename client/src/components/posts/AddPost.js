@@ -24,15 +24,11 @@ const AddPost = (props) => {
     getSubcategories,
     loading: subcategoryLoading
   } = subcategoryContext;
-  const { error, addPost } = postContext;
+  const { addPost } = postContext;
 
   useEffect(() => {
     authContext.loadUser();
     getCategories();
-
-    // if (error) {
-    //   setAlert(error, 'danger');
-    // }
 
     // eslint-disable-next-line
   }, []);

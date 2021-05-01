@@ -26,29 +26,36 @@ const UpdatePost = ({ match, history }) => {
     getSubcategories,
     loading: subcategoryLoading
   } = subcategoryContext;
-  const { current, error, loading, getPost, updatePost } = postContext;
+  const { current, loading, getPost, updatePost } = postContext;
 
   const { id } = match.params;
 
   useEffect(() => {
     authContext.loadUser();
+    getPost(id);
     getCategories();
-    getSubcategories(current.category._id);
-
-    // if (error) {
-    //   setAlert(error, 'danger');
-    // }
+    if (current !== null) {
+      setPost({
+        title: current.title,
+        image: current.image,
+        category: current.category._id,
+        subcategory: current.subcategory._id,
+        summary: current.summary,
+        content: current.content
+      });
+      getSubcategories(current.category._id);
+    }
 
     // eslint-disable-next-line
   }, []);
 
   const [post, setPost] = useState({
-    title: current.title,
-    image: current.image,
-    category: current.category._id,
-    subcategory: current.subcategory._id,
-    summary: current.summary,
-    content: current.content
+    title: '',
+    image: '',
+    category: '',
+    subcategory: '',
+    summary: '',
+    content: ''
   });
 
   const { title, image, category, subcategory, summary, content } = post;
