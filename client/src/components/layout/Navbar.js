@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 
 import AuthContext from '../../context/auth/authContext';
 
-const Navbar = ({ title, icon }) => {
+const Navbar = () => {
   const authContext = useContext(AuthContext);
 
   const { isAuthenticated, logout, user } = authContext;
@@ -13,77 +13,55 @@ const Navbar = ({ title, icon }) => {
     logout();
   };
 
-  const authLeftLinks = (
+  const authLinks = (
     <Fragment>
       <li className='nav-item'>
-        <Link to='/'>
-          <span className='nav-link active'>Home</span>
+        <Link className='nav-link' to='/post/add'>
+          Add Post
         </Link>
       </li>
       <li className='nav-item'>
-        <Link to='/post/add'>
-          {' '}
-          <span className='nav-link active'>Add Post</span>
-        </Link>
-      </li>
-    </Fragment>
-  );
-
-  const authRightLinks = (
-    <Fragment>
-      <li className='nav-item'>
-        <a className='nav-link active' aria-current='page' href='!#'>
-          Hello, {user && user.firstName}
-        </a>
-      </li>
-      <li className='nav-item'>
-        <a
-          onClick={onLogout}
-          href='#!'
-          className='nav-link active'
-          aria-current='page'
-        >
-          <span>Logout</span>
+        <a className='nav-link' onClick={onLogout} href='#!'>
+          <i class='fas fa-sign-out-alt'></i>
         </a>
       </li>
     </Fragment>
   );
 
-  const guestLeftLinks = <Fragment></Fragment>;
-
-  const guestRightLinks = (
+  const guestLinks = (
     <Fragment>
       <li className='nav-item'>
-        <Link to='/login'>
-          <span className='nav-link active'>Login</span>
+        <Link className='nav-link' to='/login'>
+          Login
         </Link>
       </li>
     </Fragment>
   );
 
   return (
-    <nav className='navbar navbar-expand-lg navbar-dark bg-primary'>
-      <div className='container-fluid'>
+    <nav className='navbar fixed-top navbar-expand-sm navbar-light bg-light mb-3 border-bottom'>
+      <div className='container'>
         <Link className='navbar-brand' to='/'>
-          <i className={icon} /> {title}
+          <div className='d-flex flex-column justify-content-center align-items-center pr-3 border-right text-secondary font-weight-bold'>
+            <i class='fas fa-book-open fa-2x'></i>
+            <span class='display-7 d-none d-md-block'>Journal</span>
+          </div>
         </Link>
+        {isAuthenticated && (
+          <span class='display-5 text-white d-none d-md-block text-secondary font-weight-bold'>
+            Hello, {user && user.firstName}
+          </span>
+        )}
         <button
           className='navbar-toggler'
-          type='button'
-          data-bs-toggle='collapse'
-          data-bs-target='#navbarSupportedContent'
-          aria-controls='navbarSupportedContent'
-          aria-expanded='false'
-          aria-label='Toggle navigation'
+          data-toggle='collapse'
+          data-target='#navbarNav'
         >
           <span className='navbar-toggler-icon'></span>
         </button>
-        <div className='collapse navbar-collapse' id='navbarSupportedContent'>
-          <ul className='navbar-nav me-auto mb-2 mb-lg-0'>
-            {isAuthenticated ? authLeftLinks : guestLeftLinks}
-          </ul>
-          <ul className='navbar-nav justify-content-end'>
-            {isAuthenticated ? authRightLinks : guestRightLinks}
+        <div className='collapse navbar-collapse' id='navbarNav'>
+          <ul className='navbar-nav ml-auto'>
+            {isAuthenticated ? authLinks : guestLinks}
           </ul>
         </div>
       </div>
