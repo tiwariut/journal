@@ -22,7 +22,7 @@ const Navbar = () => {
       </li>
       <li className='nav-item'>
         <a className='nav-link' onClick={onLogout} href='#!'>
-          <i class='fas fa-sign-out-alt'></i>
+          <i className='fas fa-sign-out-alt'></i>
         </a>
       </li>
     </Fragment>
@@ -43,12 +43,12 @@ const Navbar = () => {
       <div className='container'>
         <Link className='navbar-brand' to='/'>
           <div className='d-flex flex-column justify-content-center align-items-center pr-3 border-right text-secondary font-weight-bold'>
-            <i class='fas fa-book-open fa-2x'></i>
-            <span class='display-7 d-none d-md-block'>Journal</span>
+            <i className='fas fa-book-open fa-2x'></i>
+            <span className='display-7 d-none d-md-block'>Journal</span>
           </div>
         </Link>
         {isAuthenticated && (
-          <span class='display-5 text-white d-none d-md-block text-secondary font-weight-bold'>
+          <span className='display-5 text-white d-none d-md-block text-secondary font-weight-bold'>
             Hello, {user && user.firstName}
           </span>
         )}
