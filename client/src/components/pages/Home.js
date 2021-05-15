@@ -13,9 +13,12 @@ const Home = () => {
   }, []);
 
   return (
-    <div>
-      <div>
+    <div className='row'>
+      <div className='col-md-8 mt-4'>
         <Posts />
+      </div>
+      <div className='col-md-4 text-center mt-4 d-none d-md-block'>
+        <h2 className='text-primary'>Explore</h2>
       </div>
     </div>
   );

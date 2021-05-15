@@ -36,7 +36,7 @@ const App = () => {
               <Router>
                 <Fragment>
                   <Navbar />
-                  <div className='container'>
+                  <div className='container' style={{ marginTop: '5rem' }}>
                     <Alerts />
                     <Switch>
                       <PrivateRoute exact path='/' component={Home} />
