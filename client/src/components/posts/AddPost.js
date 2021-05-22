@@ -195,11 +195,4 @@ const AddPost = (props) => {
   );
 };
 
-const formStyle = {
-  maxWidth: '450px',
-  margin: 'auto',
-  marginTop: '20px',
-  padding: '30px'
-};
-
 export default AddPost;
