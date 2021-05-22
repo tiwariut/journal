@@ -41,61 +41,49 @@ const Login = (props) => {
   };
 
   return (
-    <div className='form-container' style={formStyle}>
-      <h1 className='text-center' style={{ color: '#0d6efd' }}>
-        Login
-      </h1>
-
-      <form onSubmit={onSubmit}>
-        <div className='mb-3'>
-          <label htmlFor='email' className='form-label'>
-            Email
-          </label>
-          <input
-            type='email'
-            className='form-control'
-            id='email'
-            name='email'
-            value={email}
-            onChange={onChange}
-            required
-          />
+    <div className='row'>
+      <div className='col-md-6 mx-auto mt-4 pt-5' style={{ height: '100vh' }}>
+        <div className='card'>
+          <div className='card-header'>
+            <h4 className='text-center'>Login</h4>
+          </div>
+          <div className='card-body'>
+            <form onSubmit={onSubmit}>
+              <div className='form-group'>
+                <label htmlFor='email'>Email</label>
+                <input
+                  type='email'
+                  className='form-control'
+                  id='email'
+                  name='email'
+                  value={email}
+                  onChange={onChange}
+                  required
+                />
+              </div>
+              <div className='form-group'>
+                <label htmlFor='password'>Password</label>
+                <input
+                  type='password'
+                  className='form-control'
+                  id='password'
+                  name='password'
+                  value={password}
+                  onChange={onChange}
+                  required
+                />
+              </div>
+              <input
+                type='submit'
+                value='Login'
+                className='btn btn-dark btn-block'
+              />
+            </form>
+          </div>
         </div>
-        <div className='mb-3'>
-          <label htmlFor='password' className='form-label'>
-            Password
-          </label>
-          <input
-            type='password'
-            className='form-control'
-            id='password'
-            name='password'
-            value={password}
-            onChange={onChange}
-            required
-          />
-        </div>
-        <button
-          type='submit'
-          className='btn btn-primary'
-          style={{
-            marginLeft: '38%',
-            marginTop: '20px',
-            background: '#0d6efd'
-          }}
-        >
-          Login
-        </button>
-      </form>
+      </div>
     </div>
   );
-};
-
-const formStyle = {
-  maxWidth: '450px',
-  margin: 'auto',
-  marginTop: '20px',
-  padding: '30px'
 };
 
 export default Login;
