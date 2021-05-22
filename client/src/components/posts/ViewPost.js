@@ -12,13 +12,8 @@ const PostItem = ({ match, history }) => {
 
   const { user } = authContext;
 
-  const {
-    current,
-    loading,
-    getPost,
-    clearCurrentPost,
-    deletePost
-  } = postContext;
+  const { current, loading, getPost, clearCurrentPost, deletePost } =
+    postContext;
 
   const { id } = match.params;
 
@@ -39,12 +34,12 @@ const PostItem = ({ match, history }) => {
   const authLinks = (
     <span style={{ float: 'right' }}>
       <Link
-        className='btn btn-outline-secondary me-2'
+        className='btn btn-outline-primary btn-sm m-2'
         to={`/post/update/${id}`}
       >
         Update
       </Link>
-      <button className='btn btn-outline-danger' onClick={onDelete}>
+      <button className='btn btn-outline-danger btn-sm' onClick={onDelete}>
         Delete
       </button>
     </span>
@@ -53,23 +48,37 @@ const PostItem = ({ match, history }) => {
   return (
     <Fragment>
       {current !== null && !loading ? (
-        <div>
-          <h1 className='text-center mt-4'>{current.title}</h1>
-          <hr />
-          <div>
-            <img
-              src={current.user.profilePicture}
-              style={roundImgStyle}
-              alt=''
-            />
-            <span className='text-success'> {current.user.fullName} </span>
-            <span className='text-secondary m-2'> 21st April, 2021</span>
-            {(user.role === 'admin' || user._id === current.user._id) &&
-              authLinks}
+        <div className='row pt-5'>
+          <div className='col-md-10 mx-auto'>
+            <div className='text-center'>
+              <h1 className='pb-4'>{current.title}</h1>
+              <div className='d-flex justify-content-between'>
+                <div>
+                  <img
+                    src={current.user.profilePicture}
+                    style={roundImgStyle}
+                    alt=''
+                  />
+                  <span className='text-success'>
+                    {' '}
+                    {current.user.fullName}{' '}
+                  </span>
+                  <small className='text-secondary m-1'>
+                    {' '}
+                    21st April, 2021
+                  </small>
+                </div>
+                <div>
+                  {(user.role === 'admin' || user._id === current.user._id) &&
+                    authLinks}
+                </div>
+              </div>
+              <hr />
+              <img src={current.image} alt='' className='img-fluid' />
+              <hr />
+            </div>
+            <p className='lead p-4 text-justify'>{current.content}</p>
           </div>
-          <img src={current.image} alt='' style={{ width: '100%' }} />
-          <hr />
-          <p className='lead p-4'>{current.content}</p>
         </div>
       ) : (
         <Spinner />
