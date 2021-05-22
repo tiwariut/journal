@@ -11,7 +11,7 @@ const Alerts = () => {
       <div
         className={`alert alert-${alert.type}`}
         role='alert'
-        style={{ marginTop: '10px' }}
+        style={{ marginTop: '110px' }}
       >
         <i className='fas fa-info-circle' /> {alert.msg}
       </div>

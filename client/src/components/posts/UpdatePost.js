@@ -88,122 +88,127 @@ const UpdatePost = ({ match, history }) => {
   return (
     <Fragment>
       {current !== null && !loading ? (
-        <div className='form-container' style={formStyle}>
-          <h1 className='text-center' style={{ color: '#0d6efd' }}>
-            Update Post
-          </h1>
-
-          <form onSubmit={onSubmit}>
-            <div className='mb-3'>
-              <label htmlFor='title' className='form-label'>
-                Title{' '}
-                <span className='text-secondary'>(max 100 characters)</span>
-              </label>
-              <input
-                type='text'
-                className='form-control'
-                id='title'
-                name='title'
-                value={title}
-                onChange={onChange}
-                maxLength='100'
-                required
-              />
+        <div className='row'>
+          <div className='col-md-6 mx-auto mt-4 pt-5'>
+            <div className='card'>
+              <div className='card-header'>
+                <h4 className='text-center'>Update Post</h4>
+              </div>
+              <div className='card-body'>
+                <form onSubmit={onSubmit}>
+                  <div className='form-group'>
+                    <label htmlFor='title' className='form-label'>
+                      Title
+                    </label>
+                    <input
+                      type='text'
+                      className='form-control'
+                      id='title'
+                      name='title'
+                      value={title}
+                      onChange={onChange}
+                      maxLength='100'
+                      required
+                    />
+                    <small className='form-text text-muted'>
+                      Max 100 characters
+                    </small>
+                  </div>
+                  <div className='form-group'>
+                    <label htmlFor='image' className='form-label'>
+                      Image URL
+                    </label>
+                    <input
+                      type='text'
+                      className='form-control'
+                      id='image'
+                      name='image'
+                      value={image}
+                      onChange={onChange}
+                      required
+                    />
+                  </div>
+                  <div className='form-group'>
+                    <label htmlFor='category'>Category</label>
+                    <select
+                      className='form-control'
+                      id='category'
+                      name='category'
+                      value={category}
+                      onChange={onCategoryChange}
+                      required
+                    >
+                      <option value=''>Select</option>
+                      {categories !== null &&
+                        !categoryLoading &&
+                        categories.map((category) => (
+                          <option key={category._id} value={category._id}>
+                            {category.name}
+                          </option>
+                        ))}
+                    </select>
+                  </div>
+                  <div className='form-group'>
+                    <label htmlFor='subcategory'>Subcategory</label>
+                    <select
+                      className='form-control'
+                      id='subcategory'
+                      name='subcategory'
+                      value={subcategory}
+                      onChange={onChange}
+                      required
+                    >
+                      <option value=''>Select</option>
+                      {subcategories !== null &&
+                        !subcategoryLoading &&
+                        subcategories.map((subcategory) => (
+                          <option key={subcategory._id} value={subcategory._id}>
+                            {subcategory.name}
+                          </option>
+                        ))}
+                    </select>
+                  </div>
+                  <div className='form-group'>
+                    <label htmlFor='summary' className='form-label'>
+                      Summary
+                    </label>
+                    <textarea
+                      className='form-control'
+                      id='summary'
+                      name='summary'
+                      value={summary}
+                      onChange={onChange}
+                      maxLength='150'
+                      rows='3'
+                      required
+                    ></textarea>
+                    <small className='form-text text-muted'>
+                      Max 150 characters
+                    </small>
+                  </div>
+                  <div className='form-group'>
+                    <label htmlFor='content' className='form-label'>
+                      Content
+                    </label>
+                    <textarea
+                      className='form-control'
+                      id='content'
+                      name='content'
+                      value={content}
+                      onChange={onChange}
+                      rows='5'
+                      required
+                    ></textarea>
+                  </div>
+                  <input
+                    type='submit'
+                    value='Update'
+                    className='btn btn-dark btn-block'
+                  />
+                </form>
+              </div>
             </div>
-            <div className='mb-3'>
-              <label htmlFor='image' className='form-label'>
-                Image URL
-              </label>
-              <input
-                type='text'
-                className='form-control'
-                id='image'
-                name='image'
-                value={image}
-                onChange={onChange}
-                required
-              />
-            </div>
-            <div className='mb-3'>
-              <select
-                className='form-select'
-                name='category'
-                value={category}
-                onChange={onCategoryChange}
-                required
-              >
-                <option value=''>Category</option>
-                {categories !== null &&
-                  !categoryLoading &&
-                  categories.map((category) => (
-                    <option key={category._id} value={category._id}>
-                      {category.name}
-                    </option>
-                  ))}
-              </select>
-            </div>
-            <div className='mb-3'>
-              <select
-                className='form-select'
-                name='subcategory'
-                value={subcategory}
-                onChange={onChange}
-                required
-              >
-                <option value=''>Subcategory</option>
-                {subcategories !== null &&
-                  !subcategoryLoading &&
-                  subcategories.map((subcategory) => (
-                    <option key={subcategory._id} value={subcategory._id}>
-                      {subcategory.name}
-                    </option>
-                  ))}
-              </select>
-            </div>
-
-            <div className='mb-3'>
-              <label htmlFor='summary' className='form-label'>
-                Summary{' '}
-                <span className='text-secondary'>(max 150 characters)</span>
-              </label>
-              <textarea
-                className='form-control'
-                id='summary'
-                name='summary'
-                value={summary}
-                onChange={onChange}
-                maxLength='150'
-                rows='3'
-                required
-              ></textarea>
-            </div>
-            <div className='mb-3'>
-              <label htmlFor='content' className='form-label'>
-                Content
-              </label>
-              <textarea
-                className='form-control'
-                id='content'
-                name='content'
-                value={content}
-                onChange={onChange}
-                rows='5'
-                required
-              ></textarea>
-            </div>
-
-            <button
-              type='submit'
-              className='btn btn-primary'
-              style={{
-                marginLeft: '38%',
-                marginTop: '20px',
-                background: '#0d6efd'
-              }}
-            >
-              Update
-            </button>
-          </form>
+          </div>
         </div>
       ) : (
         <Spinner />
